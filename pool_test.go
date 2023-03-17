@@ -16,11 +16,11 @@ func TestPool_Start(t *testing.T) {
 	}
 
 	strings := []string{"first", "second"}
-	resources := make([]interface{}, len(strings))
+	tasks := make([]interface{}, len(strings))
 	for i, s := range strings {
-		resources[i] = s
+		tasks[i] = s
 	}
 
 	pool := NewPool(3)
-	pool.Start(resources, taskProcessor, resultProcessor)
+	pool.Start(tasks, taskProcessor, resultProcessor)
 }
